@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Attendance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>EduTrack</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="students.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Students</span>
+                </a>
+                <a href="mark-attendance.html" class="nav-item">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                    <span>Mark Attendance</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search students, classes...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="Admin">
+                    </div>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's an overview of today's attendance.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Students</h3>
+                            <p id="total-students">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Present Today</h3>
+                            <p id="present-today">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon danger">
+                            <i class="fa-solid fa-user-xmark"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Absent Today</h3>
+                            <p id="absent-today">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i class="fa-solid fa-user-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Late Today</h3>
+                            <p id="late-today">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity / Quick Actions -->
+                <div class="dashboard-sections">
+                    <div class="section-card quick-actions">
+                        <h2>Quick Actions</h2>
+                        <div class="action-buttons">
+                            <a href="mark-attendance.html" class="btn btn-primary">
+                                <i class="fa-solid fa-plus"></i> Mark Today's Attendance
+                            </a>
+                            <a href="reports.html" class="btn btn-outline">
+                                <i class="fa-solid fa-file-export"></i> Export Weekly Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="section-card recent-attendance">
+                        <h2>Recent Attendance Updates</h2>
+                        <div class="empty-state" id="recent-updates-container">
+                            <p>Loading recent updates...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

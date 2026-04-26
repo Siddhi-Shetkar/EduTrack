@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Student Attendance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>EduTrack</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="students.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Students</span>
+                </a>
+                <a href="mark-attendance.html" class="nav-item">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                    <span>Mark Attendance</span>
+                </a>
+                <a href="reports.html" class="nav-item active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search students, classes...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="Admin">
+                    </div>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Attendance Reports</h1>
+                    <p>Generate and analyze attendance statistics.</p>
+                </div>
+
+                <div class="section-card selection-area">
+                    <div class="form-group">
+                        <label for="report-year-select">Select Year</label>
+                        <select id="report-year-select" class="form-control" required>
+                            <option value="" disabled selected>Select Year...</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-department-select">Select Department</label>
+                        <select id="report-department-select" class="form-control" required>
+                            <option value="" disabled selected>Select Dept...</option>
+                            <option value="CSE">CSE</option>
+                            <option value="CSM">CSM</option>
+                            <option value="CIC">CIC</option>
+                            <option value="IT">IT</option>
+                            <option value="MECH">MECH</option>
+                            <option value="BIO-TECH">BIO-TECH</option>
+                            <option value="CHEM">CHEM</option>
+                            <option value="AIDS">AIDS</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="EVL">EVL</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date" class="form-control">
+                    </div>
+                    <button id="generate-report-btn" class="btn btn-primary">Generate Report</button>
+                </div>
+
+                <div class="section-card report-results-container" id="report-results-container" style="display: none;">
+                    <div class="list-header">
+                        <h2>Class Report</h2>
+                        <button id="export-csv-btn" class="btn btn-outline">
+                            <i class="fa-solid fa-download"></i> Export CSV
+                        </button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="attendance-table" id="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Student Name</th>
+                                    <th>Total Classes</th>
+                                    <th>Present</th>
+                                    <th>Absent</th>
+                                    <th>Late</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="report-tbody">
+                                <!-- Report rows will be generated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>

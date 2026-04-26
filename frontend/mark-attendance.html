@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance - Student Attendance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>EduTrack</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="students.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Students</span>
+                </a>
+                <a href="mark-attendance.html" class="nav-item active">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                    <span>Mark Attendance</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search students, classes...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="Admin">
+                    </div>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Mark Attendance</h1>
+                    <p>Select a class and date to record attendance.</p>
+                </div>
+
+                <div class="section-card selection-area">
+                    <div class="form-group">
+                        <label for="year-select">Select Year</label>
+                        <select id="year-select" class="form-control" required>
+                            <option value="" disabled selected>Select Year...</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="department-select">Select Department</label>
+                        <select id="department-select" class="form-control" required>
+                            <option value="" disabled selected>Select Dept...</option>
+                            <option value="CSE">CSE</option>
+                            <option value="CSM">CSM</option>
+                            <option value="CIC">CIC</option>
+                            <option value="IT">IT</option>
+                            <option value="MECH">MECH</option>
+                            <option value="BIO-TECH">BIO-TECH</option>
+                            <option value="CHEM">CHEM</option>
+                            <option value="AIDS">AIDS</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="EVL">EVL</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-select">Select Date</label>
+                        <input type="date" id="date-select" class="form-control">
+                    </div>
+                    <button id="fetch-students-btn" class="btn btn-primary">Load Students</button>
+                </div>
+
+                <div class="section-card attendance-list-container" id="attendance-list-container" style="display: none;">
+                    <div class="list-header">
+                        <h2>Student List</h2>
+                        <div class="bulk-actions">
+                            <button class="btn btn-outline btn-sm" id="mark-all-present">Mark All Present</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Student Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-tbody">
+                                <!-- Student rows will be generated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="action-footer">
+                        <button id="submit-attendance-btn" class="btn btn-primary">Save Attendance</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

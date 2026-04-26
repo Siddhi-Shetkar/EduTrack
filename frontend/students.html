@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - Student Attendance Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>EduTrack</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="students.html" class="nav-item active">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Students</span>
+                </a>
+                <a href="mark-attendance.html" class="nav-item">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                    <span>Mark Attendance</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search students, classes...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="Admin">
+                    </div>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>Manage Students</h1>
+                    <p>Add new students or view the directory.</p>
+                </div>
+
+                <!-- Add Student Form -->
+                <div class="section-card selection-area" style="margin-bottom: 2rem;">
+                    <h2>Add New Student</h2>
+                    <form id="add-student-form" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end; margin-top: 1rem;">
+                        <div class="form-group" style="flex: 1; min-width: 200px;">
+                            <label for="student-name">Full Name</label>
+                            <input type="text" id="student-name" class="form-control" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group" style="flex: 1; min-width: 150px;">
+                            <label for="student-roll">Roll Number</label>
+                            <input type="text" id="student-roll" class="form-control" placeholder="e.g. 1601xxxxxxxx" required>
+                        </div>
+                        <div class="form-group" style="flex: 1; min-width: 150px;">
+                            <label for="student-year">Year</label>
+                            <select id="student-year" class="form-control" required>
+                                <option value="" disabled selected>Select Year...</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex: 1; min-width: 150px;">
+                            <label for="student-department">Department</label>
+                            <select id="student-department" class="form-control" required>
+                                <option value="" disabled selected>Select Dept...</option>
+                                <option value="CSE">CSE</option>
+                                <option value="CSM">CSM</option>
+                                <option value="CIC">CIC</option>
+                                <option value="IT">IT</option>
+                                <option value="MECH">MECH</option>
+                                <option value="BIO-TECH">BIO-TECH</option>
+                                <option value="CHEM">CHEM</option>
+                                <option value="AIDS">AIDS</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="EVL">EVL</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="height: 42px; margin-bottom: 5px;">
+                            <i class="fa-solid fa-plus"></i> Add Student
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Student List -->
+                <div class="section-card">
+                    <div class="list-header">
+                        <h2>Student Directory</h2>
+                        <div class="form-group" style="margin: 0; width: 150px;">
+                            <select id="filter-year" class="form-control">
+                                <option value="">All Years</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 0; width: 150px;">
+                            <select id="filter-department" class="form-control">
+                                <option value="">All Depts</option>
+                                <option value="CSE">CSE</option>
+                                <option value="CSM">CSM</option>
+                                <option value="CIC">CIC</option>
+                                <option value="IT">IT</option>
+                                <option value="MECH">MECH</option>
+                                <option value="BIO-TECH">BIO-TECH</option>
+                                <option value="CHEM">CHEM</option>
+                                <option value="AIDS">AIDS</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="EVL">EVL</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="attendance-table">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Student Name</th>
+                                    <th>Department & Year</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-directory-tbody">
+                                <!-- Student rows will be generated here -->
+                                <tr>
+                                    <td colspan="4" style="text-align: center;">Loading students...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
